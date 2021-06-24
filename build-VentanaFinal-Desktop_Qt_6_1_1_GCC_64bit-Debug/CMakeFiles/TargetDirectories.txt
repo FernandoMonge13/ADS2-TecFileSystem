@@ -1,0 +1,5 @@
+/home/marco/CLionProjects/VentanaFinal/build-VentanaFinal-Desktop_Qt_6_1_1_GCC_64bit-Debug/CMakeFiles/rebuild_cache.dir
+/home/marco/CLionProjects/VentanaFinal/build-VentanaFinal-Desktop_Qt_6_1_1_GCC_64bit-Debug/CMakeFiles/edit_cache.dir
+/home/marco/CLionProjects/VentanaFinal/build-VentanaFinal-Desktop_Qt_6_1_1_GCC_64bit-Debug/CMakeFiles/VentanaFinal.dir
+/home/marco/CLionProjects/VentanaFinal/build-VentanaFinal-Desktop_Qt_6_1_1_GCC_64bit-Debug/CMakeFiles/VentanaFinal_autogen_timestamp_deps.dir
+/home/marco/CLionProjects/VentanaFinal/build-VentanaFinal-Desktop_Qt_6_1_1_GCC_64bit-Debug/CMakeFiles/VentanaFinal_autogen.dir
