@@ -63,15 +63,13 @@ void Server::Start() {
         //if (Parser::ReturnStringValueFromJson(doc, "variable a comparar") == "valor de la variable")
         if (Parser::ReturnStringValueFromJson(doc, "toDo") == "nothing") {
             toReturn.setObject(Parser::Nothing());
-            qDebug()<<"esta mrd esta sirviendo";
         } else if (Parser::ReturnStringValueFromJson(doc, "toDo") == "decodeHuffman") {
 
             std::string binary = Parser::ReturnStringValueFromJson(doc, "huffman");
             std::string strToReturn = "";
 
-
+            Controller.recoverData();
             for (int i = 0; i < Controller.getBlocks(); i++){
-                qDebug()<<"hola";
                 std::string toCompare = Controller.loadFromRaid(std::to_string(i));
                 browser.setInfo(toCompare);
                 if (browser.analyze(binary)){
@@ -86,7 +84,7 @@ void Server::Start() {
 
 
             //std::string path = Huffman::getInstance()->decode(binary);
-
+            Controller.recoverData();
             for (const auto & entry : fs::directory_iterator(path)) {
                 if (entry.path().u8string().find(".txt") != std::string::npos){
                     std::ifstream file (entry.path());

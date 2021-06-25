@@ -101,7 +101,7 @@ void ControllerNode::saveInRaid(std::string data) {
     usedMemory += charVector.size();
     std::cout << "usedMemory (bytes): " << usedMemory << std::endl;
 
-    std::ofstream ofsBlock(path_uwu + "/TECFS-Disk/metadata.txt");
+    std::ofstream ofsBlock(path_uwu + "/TECFS-Disk/metadata2.txt");
     if (ofsBlock) {
         ofsBlock << blocks;
     }
@@ -109,7 +109,7 @@ void ControllerNode::saveInRaid(std::string data) {
 }
 
 std::string ControllerNode::loadFromRaid(std::string block) {
-    recoverData();
+
 
     // determinar el disco en que se está la paridad
     int iblock = std::stoi(block);
