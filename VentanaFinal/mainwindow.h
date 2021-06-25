@@ -31,8 +31,15 @@ public:
     static void setJson(std::string toSet);
 
 private slots:
+
+    /*!
+     * @brief Boton que corresponde a la accion de abrir una carpeta
+     */
     void on_pushButton_clicked();
 
+    /*!
+     * @brief Boton que corresponde a la accion de buscar un documento
+     */
     void on_pushButton_2_clicked();
 
 private:

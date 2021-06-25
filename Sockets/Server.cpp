@@ -58,9 +58,7 @@ void Server::Start() {
         QJsonDocument doc = Parser::ReturnJson(std::string(this->buf, 0, bytesReceived).c_str()); //Devolver lo que llego por el socket a json
 
         QJsonDocument toReturn; //objeto al que setearle lo que se va a devolver
-        //toReturn.setObject(Parser::CreateJsonObj_ReturnsData(value)); esto va dentro de cada uno de los ifs con el respectivo metodo de parser
 
-        //if (Parser::ReturnStringValueFromJson(doc, "variable a comparar") == "valor de la variable")
         if (Parser::ReturnStringValueFromJson(doc, "toDo") == "nothing") {
             toReturn.setObject(Parser::Nothing());
         } else if (Parser::ReturnStringValueFromJson(doc, "toDo") == "decodeHuffman") {
@@ -96,10 +94,8 @@ void Server::Start() {
             }
 
 
-            //qDebug()<<"esta mrd ya no esta sirviendo";
             toReturn.setObject(Parser::Nothing());
         }
-        //aqui van las condiciones para entender lo que entra
 
         qDebug()<<"arriba";
         qDebug()<<Parser::ReturnChar(toReturn).c_str();
