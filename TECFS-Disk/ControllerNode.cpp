@@ -3,29 +3,46 @@
 //
 
 #include "ControllerNode.h"
+#include <iostream>
+#include <string>
+#include <filesystem>
+#include <unistd.h>
+#include <QDebug>
 
 ControllerNode::ControllerNode() {
+    std::string path_owo = fs::current_path().c_str();
+    for (int i = 0; i < 31; i++){
+        path_owo.pop_back();
+    }
+    path_uwu = path_owo;
+    std::ifstream openPort1;
+    openPort1.open(path_uwu + "/TECFS-Disk/metadata2.txt");
+    openPort1 >> blocks;
+    openPort1.close();
 
 }
 
 void ControllerNode::saveInRaid(std::string data) {
 
     // escribe el string del usuario en un txt
-    std::ofstream ofs("../TECFS-Disk/metadata.txt");
+
+
+
+    std::ofstream ofs(path_uwu + "/TECFS-Disk/metadata.txt");
     if (ofs) {
         ofs << data << std::endl; // easy way, use the stream insertion operator   https://stackoverflow.com/questions/778378/how-to-write-bitset-data-to-a-file
     }
 
     // lee el txt y lo transforma en un vector de char
-    std::ifstream input("../TECFS-Disk/metadata.txt", std::ios::binary);
+    std::ifstream input(path_uwu + "/TECFS-Disk/metadata.txt", std::ios::binary);
     std::vector<char> charVector((std::istreambuf_iterator<char>(input)),(std::istreambuf_iterator<char>()));
     charVector.pop_back();
     input.close();
 
     // Escritores de los bytes en los bloques
-    std::ofstream writer_d0("../TECFS-Disk/Disks/Disk 0/block " + std::to_string(blocks) + ".txt");
-    std::ofstream writer_d1("../TECFS-Disk/Disks/Disk 1/block " + std::to_string(blocks) + ".txt");
-    std::ofstream writer_d2("../TECFS-Disk/Disks/Disk 2/block " + std::to_string(blocks) + ".txt");
+    std::ofstream writer_d0(path_uwu + "/TECFS-Disk/Disks/Disk 0/block " + std::to_string(blocks) + ".txt");
+    std::ofstream writer_d1(path_uwu + "/TECFS-Disk/Disks/Disk 1/block " + std::to_string(blocks) + ".txt");
+    std::ofstream writer_d2(path_uwu + "/TECFS-Disk/Disks/Disk 2/block " + std::to_string(blocks) + ".txt");
 
     // recorre cada char, lo tranforma en byte, lo divide y guarda junto con su paridad
     for (int i = 0; i < charVector.size(); i++) {
@@ -83,9 +100,16 @@ void ControllerNode::saveInRaid(std::string data) {
     blocks++;
     usedMemory += charVector.size();
     std::cout << "usedMemory (bytes): " << usedMemory << std::endl;
+
+    std::ofstream ofsBlock(path_uwu + "/TECFS-Disk/metadata.txt");
+    if (ofsBlock) {
+        ofsBlock << blocks;
+    }
+    ofsBlock.close();
 }
 
 std::string ControllerNode::loadFromRaid(std::string block) {
+    recoverData();
 
     // determinar el disco en que se está la paridad
     int iblock = std::stoi(block);
@@ -109,18 +133,18 @@ std::string ControllerNode::loadFromRaid(std::string block) {
 
     if (paritydisk == 2){
 
-        openPort1.open("../TECFS-Disk/Disks/Disk 0/block " + block + ".txt");
-        openPort2.open("../TECFS-Disk/Disks/Disk 1/block " + block + ".txt");
+        openPort1.open(path_uwu + "/TECFS-Disk/Disks/Disk 0/block " + block + ".txt");
+        openPort2.open(path_uwu + "/TECFS-Disk/Disks/Disk 1/block " + block + ".txt");
     }
     else if (paritydisk == 1){
 
-        openPort1.open("../TECFS-Disk/Disks/Disk 0/block " + block + ".txt");
-        openPort2.open("../TECFS-Disk/Disks/Disk 2/block " + block + ".txt");
+        openPort1.open(path_uwu + "/TECFS-Disk/Disks/Disk 0/block " + block + ".txt");
+        openPort2.open(path_uwu +"/TECFS-Disk/Disks/Disk 2/block " + block + ".txt");
     }
     else if (paritydisk == 0){
 
-        openPort1.open("../TECFS-Disk/Disks/Disk 1/block " + block + ".txt");
-        openPort2.open("../TECFS-Disk/Disks/Disk 2/block " + block + ".txt");
+        openPort1.open(path_uwu + "/TECFS-Disk/Disks/Disk 1/block " + block + ".txt");
+        openPort2.open(path_uwu + "/TECFS-Disk/Disks/Disk 2/block " + block + ".txt");
     }
 
     std::vector<std::bitset<8>> byteVector;
@@ -138,7 +162,7 @@ std::string ControllerNode::loadFromRaid(std::string block) {
     }
     openPort1.close();
     byteVector.pop_back();
-    std::ofstream ofs("../TECFS-Disk/metadata.txt");
+    std::ofstream ofs(path_uwu +  "/TECFS-Disk/metadata.txt");
 
     while (!openPort2.eof() && index < byteVector.size()){
         std::bitset<4> charBits(0);
@@ -162,7 +186,7 @@ std::string ControllerNode::loadFromRaid(std::string block) {
 
     // lee la info  de metadata
     std::string data;
-    openPort1.open("../TECFS-Disk/metadata.txt");
+    openPort1.open(path_uwu + "/TECFS-Disk/metadata.txt");
     while (!openPort1.eof()){
         openPort1 >> data;
     }
@@ -178,27 +202,30 @@ void ControllerNode::recoverData() {
 
     bool missingDisk = false;
 
+    std::string uwu1 = path_uwu + "/TECFS-Disk/Disks/Disk 2";
+    std::string uwu2 = path_uwu + "/TECFS-Disk/Disks/Disk 1";
+    std::string uwu3 = path_uwu + "/TECFS-Disk/Disks/Disk 0";
     // Crea la carpeta de disco eliminado
-    if (mkdir("../TECFS-Disk/Disks/Disk 2", 0777) != -1) {
+    if (mkdir(uwu1.c_str(), 0777) != -1) {
 
         std::cout << "Directory created" << std::endl;
-        pathDiskGood = "../TECFS-Disk/Disks/Disk 0/block ";
-        pathDiskGood2 = "../TECFS-Disk/Disks/Disk 1/block ";
-        pathDiskToReconstruct = "../TECFS-Disk/Disks/Disk 2/block ";
+        pathDiskGood = path_uwu + "/TECFS-Disk/Disks/Disk 0/block ";
+        pathDiskGood2 = path_uwu + "/TECFS-Disk/Disks/Disk 1/block ";
+        pathDiskToReconstruct = path_uwu + "/TECFS-Disk/Disks/Disk 2/block ";
         missingDisk = true;
     }
-    else if (mkdir("../TECFS-Disk/Disks/Disk 1", 0777) != -1){
+    else if (mkdir(uwu2.c_str(), 0777) != -1){
 
-        pathDiskGood = "../TECFS-Disk/Disks/Disk 0/block ";
-        pathDiskGood2 = "../TECFS-Disk/Disks/Disk 2/block ";
-        pathDiskToReconstruct = "../TECFS-Disk/Disks/Disk 1/block ";
+        pathDiskGood = path_uwu + "/TECFS-Disk/Disks/Disk 0/block ";
+        pathDiskGood2 = path_uwu + "/TECFS-Disk/Disks/Disk 2/block ";
+        pathDiskToReconstruct = path_uwu + "/TECFS-Disk/Disks/Disk 1/block ";
         missingDisk = true;
     }
-    else if (mkdir("../TECFS-Disk/Disks/Disk 0", 0777) != -1){
+    else if (mkdir(uwu3.c_str(), 0777) != -1){
 
-        pathDiskGood = "../TECFS-Disk/Disks/Disk 1/block ";
-        pathDiskGood2 = "../TECFS-Disk/Disks/Disk 2/block ";
-        pathDiskToReconstruct = "../TECFS-Disk/Disks/Disk 0/block ";
+        pathDiskGood = path_uwu + "/TECFS-Disk/Disks/Disk 1/block ";
+        pathDiskGood2 = path_uwu + "/TECFS-Disk/Disks/Disk 2/block ";
+        pathDiskToReconstruct = path_uwu + "/TECFS-Disk/Disks/Disk 0/block ";
         missingDisk = true;
     }
     else {
@@ -249,6 +276,10 @@ void ControllerNode::recoverData() {
 
 void ControllerNode::setBlocks(int _blocks) {
     ControllerNode::blocks = _blocks;
+}
+
+int ControllerNode::getBlocks() {
+    return blocks;
 }
 
 

@@ -133,6 +133,13 @@ public:
  * @return QJsonObject
  */
     static QJsonObject Nothing();
+
+    static QJsonObject Huffman(std::string binary);
+
+    static QJsonObject Path(std::string binary);
+
+    static QJsonObject ToShow(std::string text);
+
 };
 
 

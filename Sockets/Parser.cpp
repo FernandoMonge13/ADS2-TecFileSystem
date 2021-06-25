@@ -35,6 +35,27 @@ QJsonObject Parser::Nothing(){
     obj["toDo"] = "nothing";
     return obj;
 }
+
+QJsonObject Parser::Huffman(std::string binary) {
+    QJsonObject obj;
+    obj["toDo"] = "decodeHuffman";
+    obj["huffman"] = binary.c_str();
+    return obj;
+}
+
+QJsonObject Parser::Path(std::string binary) {
+    QJsonObject obj;
+    obj["toDo"] = "Search";
+    obj["huffman"] = binary.c_str();
+    return obj;
+}
+
+QJsonObject Parser::ToShow(std::string text) {
+    QJsonObject obj;
+    obj["toDo"] = "toShow";
+    obj["text"] = text.c_str();
+    return obj;
+}
 //
 //QJsonObject Parser::CreateJsonObj_ReturnsData(std::string name) {
 //    QJsonObject obj;
@@ -73,6 +94,8 @@ QJsonDocument Parser::ReturnJsonFromStr(std::string text){
     QJsonDocument document = QJsonDocument::fromJson(Qstr.toUtf8()); //QString to QJsonDocument
     return document;
 }
+
+
 //
 //QJsonObject Parser::CreateJsonObj_NewStructObject(std::string name, std::string integers,
 //                                                  std::string doubles, std::string longs, std::string floats,

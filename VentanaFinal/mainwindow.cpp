@@ -8,6 +8,7 @@
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QDebug>
+#include "../Huffman/Huffman.h"
 #include "../Sockets/Parser.h"
 
 std::string MainWindow::json = "";
@@ -30,34 +31,45 @@ void MainWindow::on_pushButton_clicked()
 {
     //boton abrir
     QFile file;
-     QTextStream io;
+    QTextStream io;
 
-     QString filePath = QFileDialog::getOpenFileName(this, "Open Directory");
+    QString filePath = QFileDialog::getOpenFileName(this, "Open Directory");
 
-     QDir d = QFileInfo(filePath).dir(); //hay que seleccionar uno de los archivos dentro de la carpeta
-     QString absolute=d.path();
+    QDir d = QFileInfo(filePath).dir(); //hay que seleccionar uno de los archivos dentro de la carpeta
+    QString absolute=d.path();
 
-     qDebug()<< absolute; //absolute es el pto path a la carpeta del archivo seleccionado
+    qDebug()<< absolute; //absolute es el pto path a la carpeta del archivo seleccionado
 
-     file.close();
 
-    doc.setObject(Parser::Nothing());
+    file.close();
+
+    //std::string huf = Huffman::getInstance()->code(absolute.toStdString());
+
+
+    doc.setObject(Parser::Path(absolute.toStdString()));
     std::string json = Parser::ReturnChar(doc);
     MainWindow::setJson(json);
     client->Start();
+    usleep(10000);
 }
 
 
 void MainWindow::on_pushButton_2_clicked()
 {
-    QString test = ui->textBox->toPlainText(); //qstring para obtener lo que hay en la mrd
-    qDebug()<<test;
+    QString text = ui->textBox->toPlainText(); //qstring para obtener lo que hay en la mrd
+
+    //std::string huf = Huffman::getInstance()->code(text.toStdString());
+    //qDebug()<<test;
     //boton buscar
 
-    doc.setObject(Parser::Nothing());
+    doc.setObject(Parser::Huffman(text.toStdString()));
     std::string json = Parser::ReturnChar(doc);
     MainWindow::setJson(json);
     client->Start();
+    usleep(10000);
+    ui->textBox->clear();
+    qDebug()<<Client::getReceived();
+    ui->textBox->setPlainText(QString::fromStdString(Parser::ReturnStringValueFromJson(Client::getReceived(), "text")));
 }
 
 std::string MainWindow::getJson() {

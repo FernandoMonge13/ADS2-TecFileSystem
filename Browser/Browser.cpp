@@ -3,18 +3,29 @@
 //
 
 #include "Browser.h"
+#include "../Huffman/Huffman.h"
+#include <qdebug.h>
+
+#include <utility>
 
 Browser::Browser() {
 
 }
 
-void Browser::analyze(std::string metadata) {
+bool Browser::analyze(std::string metadata) {
 
     if (info.find(metadata) != std::string::npos){
         std::cout << "FOUNDED";
+        return true;
     }
     else{
         std::cout << "NO FOUNDED";
+        return false;
     }
 
 }
+
+void Browser::setInfo(const std::string &info) {
+    Browser::info = info;
+}
+

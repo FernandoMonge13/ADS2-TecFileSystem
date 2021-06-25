@@ -10,6 +10,12 @@
 #include "Server.h"
 #include <string>
 #include <iostream>
+#include <QFile>
+#include "../Huffman/Huffman.h"
+#include "../TECFS-Disk/ControllerNode.h"
+#include <iostream>
+#include <fstream>
+#include <string>
 
 void Server::Start() {
     int listening = socket(AF_INET, SOCK_STREAM, 0);
@@ -58,10 +64,48 @@ void Server::Start() {
         if (Parser::ReturnStringValueFromJson(doc, "toDo") == "nothing") {
             toReturn.setObject(Parser::Nothing());
             qDebug()<<"esta mrd esta sirviendo";
+        } else if (Parser::ReturnStringValueFromJson(doc, "toDo") == "decodeHuffman") {
+
+            std::string binary = Parser::ReturnStringValueFromJson(doc, "huffman");
+            std::string strToReturn = "";
+
+
+            for (int i = 0; i < Controller.getBlocks(); i++){
+                qDebug()<<"hola";
+                std::string toCompare = Controller.loadFromRaid(std::to_string(i));
+                browser.setInfo(toCompare);
+                if (browser.analyze(binary)){
+                    strToReturn.append("Encontrado en el bloque " + std::to_string(i) + ":" + "\n" + toCompare + "\n\n");
+                }
+            }
+
+            toReturn.setObject(Parser::ToShow(strToReturn));
+        } else if (Parser::ReturnStringValueFromJson(doc, "toDo") == "Search") {
+            std::string path = Parser::ReturnStringValueFromJson(doc, "huffman");
+
+
+
+            //std::string path = Huffman::getInstance()->decode(binary);
+
+            for (const auto & entry : fs::directory_iterator(path)) {
+                if (entry.path().u8string().find(".txt") != std::string::npos){
+                    std::ifstream file (entry.path());
+                    std::string content( (std::istreambuf_iterator<char>(file) ),
+                                          (std::istreambuf_iterator<char>()    ) );
+
+                    Controller.saveInRaid(content);
+                }
+            }
+
+
+            //qDebug()<<"esta mrd ya no esta sirviendo";
+            toReturn.setObject(Parser::Nothing());
         }
         //aqui van las condiciones para entender lo que entra
 
-        std::cout<<Parser::ReturnChar(toReturn).c_str()<<std::endl;
+        qDebug()<<"arriba";
+        qDebug()<<Parser::ReturnChar(toReturn).c_str();
+        qDebug()<<"abajo";
         send(clientSockect, Parser::ReturnChar(toReturn).c_str(), Parser::ReturnChar(toReturn).size() + 1, 0);
     }
     close(clientSockect);

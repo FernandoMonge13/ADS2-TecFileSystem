@@ -8,7 +8,7 @@ set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 
-set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 # QtCreator supports the following variables for Android, which are identical to qmake Android variables.
@@ -31,6 +31,12 @@ set(PROJECT_SOURCES
         main.cpp
         mainwindow.cpp
         mainwindow.h
+        ../Browser/Browser.cpp
+        ../Browser/Browser.h
+        ../Huffman/Huffman.cpp
+        ../Huffman/Huffman.h
+        ../TECFS-Disk/ControllerNode.cpp
+        ../TECFS-Disk/ControllerNode.h
         mainwindow.ui
         ../Sockets/Client.cpp ../Sockets/Client.h ../Sockets/Parser.cpp ../Sockets/Parser.h ../Sockets/Server.cpp ../Sockets/Server.h)
 

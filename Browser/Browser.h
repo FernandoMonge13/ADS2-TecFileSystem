@@ -7,19 +7,23 @@
 
 #include <iostream>
 #include <string>
+#include "../TECFS-Disk/ControllerNode.h"
 
 class Browser {
 
 public:
 
     Browser();
-    void analyze(std::string metadata);
+    bool analyze(std::string metadata);
+
+    void setInfo(const std::string &info);
+
 
 
 private:
 
 
-    std::string info = "kdjsifhejfjefholahgshfgshfjskhf";
+    std::string info;
 
 };
 

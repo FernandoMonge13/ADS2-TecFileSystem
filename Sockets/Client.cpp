@@ -23,7 +23,7 @@ void Client::Start() {
 
     while (true){
         QJsonDocument doc= Parser::ReturnJson(MainWindow::getJson().c_str()); //Genera el documento con los rasgos de dentro
-        qDebug()<<MainWindow::getJson().c_str();
+        //qDebug()<<MainWindow::getJson().c_str();
         std::string prueba= Parser::ReturnChar(doc); //String to char (to be able to send it through sockets) //Lo pasa a string
         int sendRes = send(sock, prueba.c_str(), prueba.size() + 1, 0);
 

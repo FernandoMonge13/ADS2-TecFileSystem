@@ -10,14 +10,18 @@
 
 int main(int argc, char *argv[]) {
 
+
+
     int aux;
     std::cout << "1 para server, 2 para cliente" << std::endl;
     std::cin >> aux;
 
     if (aux == 1) {
 
+
         Server *test = new Server;
         test->Start();
+
 
     } else if (aux == 2) {
         QApplication a(argc, argv);

@@ -126,6 +126,6 @@ Huffman *Huffman::getInstance() {
 
 std::string Huffman::decode(std::string info) {
 
-    std::string encodedString = decode_file(minHeap.top(), info);
-    return encodedString;
+    //std::string encodedString = decode_file(minHeap.top(), info);
+    return decode_file(minHeap.top(), info);;
 }

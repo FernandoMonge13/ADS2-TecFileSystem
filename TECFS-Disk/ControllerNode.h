@@ -25,11 +25,13 @@ private:
     int blocks = 0;
 public:
     void setBlocks(int _blocks);
+    int getBlocks();
 
 private:
     int usedMemory = 0;
     int availableMemory = 0;
     int parity_disk_turn = 2;
+    std::string path_uwu;
 
 public:
 
