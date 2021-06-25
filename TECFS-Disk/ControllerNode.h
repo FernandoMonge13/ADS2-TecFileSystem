@@ -54,7 +54,7 @@ public:
     /**
      * @brief Reconstruye la información cuando 1 o 2 discos se han eliminado
      */
-    void recoverData(std::string path1, std::string path2, std::string deletedDisk);
+    void recoverData();
 };
 
 

@@ -170,25 +170,51 @@ std::string ControllerNode::loadFromRaid(std::string block) {
     return data;
 }
 
-void ControllerNode::recoverData(std::string path1, std::string path2, std::string deletedDisk) {
+void ControllerNode::recoverData() {
+
+    std::string pathDiskGood;
+    std::string pathDiskGood2;
+    std::string pathDiskToReconstruct;
+
+    bool missingDisk = false;
 
     // Crea la carpeta de disco eliminado
-    if (mkdir("../TECFS-Disk/Disks/Disk 2", 0777) == -1) {
-
-        std::cerr << "Error :  " << strerror(errno) << std::endl;
-    } else {
+    if (mkdir("../TECFS-Disk/Disks/Disk 2", 0777) != -1) {
 
         std::cout << "Directory created" << std::endl;
+        pathDiskGood = "../TECFS-Disk/Disks/Disk 0/block ";
+        pathDiskGood2 = "../TECFS-Disk/Disks/Disk 1/block ";
+        pathDiskToReconstruct = "../TECFS-Disk/Disks/Disk 2/block ";
+        missingDisk = true;
+    }
+    else if (mkdir("../TECFS-Disk/Disks/Disk 1", 0777) != -1){
+
+        pathDiskGood = "../TECFS-Disk/Disks/Disk 0/block ";
+        pathDiskGood2 = "../TECFS-Disk/Disks/Disk 2/block ";
+        pathDiskToReconstruct = "../TECFS-Disk/Disks/Disk 1/block ";
+        missingDisk = true;
+    }
+    else if (mkdir("../TECFS-Disk/Disks/Disk 0", 0777) != -1){
+
+        pathDiskGood = "../TECFS-Disk/Disks/Disk 1/block ";
+        pathDiskGood2 = "../TECFS-Disk/Disks/Disk 2/block ";
+        pathDiskToReconstruct = "../TECFS-Disk/Disks/Disk 0/block ";
+        missingDisk = true;
+    }
+    else {
+
+        std::cerr << "Error :  " << strerror(errno) << std::endl;
+        std::cout << "Ningun disco ha fallado, no es necesario recuperar información" << std::endl;
     }
 
     // reconstruye la info
     int actual_block = 0;
-    while (actual_block < blocks) {
+    while (actual_block < blocks && missingDisk) {
 
         std::vector<std::bitset<4>> bitsetVector;
 
         std::ifstream openPort1;
-        openPort1.open("../TECFS-Disk/Disks/Disk 0/block " + std::to_string(actual_block) + ".txt");
+        openPort1.open( pathDiskGood + std::to_string(actual_block) + ".txt");
 
         // obtiene los bits de un bloque y los guarda en un vector
         while (!openPort1.eof()) {
@@ -199,17 +225,16 @@ void ControllerNode::recoverData(std::string path1, std::string path2, std::stri
         bitsetVector.pop_back();
         openPort1.close();
 
-        openPort1.open("../TECFS-Disk/Disks/Disk 1/block " + std::to_string(actual_block) + ".txt");
+        openPort1.open(pathDiskGood2 + std::to_string(actual_block) + ".txt");
 
         int index = 0;
-        std::ofstream ofs("../TECFS-Disk/Disks/Disk 2/block " + std::to_string(actual_block) + ".txt");
+        std::ofstream ofs(pathDiskToReconstruct + std::to_string(actual_block) + ".txt");
         while (!openPort1.eof() && index < bitsetVector.size()) {
             std::bitset<4> charBits(0);
             openPort1 >> charBits;
 
             std::bitset<4> xorBits(0);
             xorBits = (bitsetVector.at(index) ^ charBits);
-//            bitsetVector.at(index)
 
             if (ofs) {
                 ofs << xorBits << std::endl; // easy way, use the stream insertion operator   https://stackoverflow.com/questions/778378/how-to-write-bitset-data-to-a-file
