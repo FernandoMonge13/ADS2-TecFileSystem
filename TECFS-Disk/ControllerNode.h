@@ -29,7 +29,7 @@ public:
 
 private:
     int usedMemory = 0;
-    int availableMemory = 0;
+    int availableMemory = 150;
     int parity_disk_turn = 2;
     std::string path_uwu;
 

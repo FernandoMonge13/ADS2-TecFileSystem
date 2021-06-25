@@ -18,6 +18,8 @@ ControllerNode::ControllerNode() {
     std::ifstream openPort1;
     openPort1.open(path_uwu + "/TECFS-Disk/metadata2.txt");
     openPort1 >> blocks;
+    openPort1 >> usedMemory;
+    openPort1 >> parity_disk_turn;
     openPort1.close();
 
 }
@@ -39,73 +41,80 @@ void ControllerNode::saveInRaid(std::string data) {
     charVector.pop_back();
     input.close();
 
-    // Escritores de los bytes en los bloques
-    std::ofstream writer_d0(path_uwu + "/TECFS-Disk/Disks/Disk 0/block " + std::to_string(blocks) + ".txt");
-    std::ofstream writer_d1(path_uwu + "/TECFS-Disk/Disks/Disk 1/block " + std::to_string(blocks) + ".txt");
-    std::ofstream writer_d2(path_uwu + "/TECFS-Disk/Disks/Disk 2/block " + std::to_string(blocks) + ".txt");
+    if (usedMemory+charVector.size() <= availableMemory){
 
-    // recorre cada char, lo tranforma en byte, lo divide y guarda junto con su paridad
-    for (int i = 0; i < charVector.size(); i++) {
+        // Escritores de los bytes en los bloques
+        std::ofstream writer_d0(path_uwu + "/TECFS-Disk/Disks/Disk 0/block " + std::to_string(blocks) + ".txt");
+        std::ofstream writer_d1(path_uwu + "/TECFS-Disk/Disks/Disk 1/block " + std::to_string(blocks) + ".txt");
+        std::ofstream writer_d2(path_uwu + "/TECFS-Disk/Disks/Disk 2/block " + std::to_string(blocks) + ".txt");
 
-        std::bitset<8> charBytes(charVector.at(i));
-        std::cout << "charBytes " << charBytes << std::endl;
+        // recorre cada char, lo tranforma en byte, lo divide y guarda junto con su paridad
+        for (int i = 0; i < charVector.size(); i++) {
 
-        // divide el byte en bits
-        std::bitset<4> charBytes1(0);
-        charBytes1.set(3, charBytes[7]);
-        charBytes1.set(2, charBytes[6]);
-        charBytes1.set(1, charBytes[5]);
-        charBytes1.set(0, charBytes[4]);
+            std::bitset<8> charBytes(charVector.at(i));
+            std::cout << "charBytes " << charBytes << std::endl;
 
-        std::bitset<4> charBytes2(0);
-        charBytes2.set(3, charBytes[3]);
-        charBytes2.set(2, charBytes[2]);
-        charBytes2.set(1, charBytes[1]);
-        charBytes2.set(0, charBytes[0]);
+            // divide el byte en bits
+            std::bitset<4> charBytes1(0);
+            charBytes1.set(3, charBytes[7]);
+            charBytes1.set(2, charBytes[6]);
+            charBytes1.set(1, charBytes[5]);
+            charBytes1.set(0, charBytes[4]);
 
-        std::bitset<4> charBytesParity = (charBytes1 ^ charBytes2);
+            std::bitset<4> charBytes2(0);
+            charBytes2.set(3, charBytes[3]);
+            charBytes2.set(2, charBytes[2]);
+            charBytes2.set(1, charBytes[1]);
+            charBytes2.set(0, charBytes[0]);
 
-        // se escribe un par de bits en un bloque de cada disco
+            std::bitset<4> charBytesParity = (charBytes1 ^ charBytes2);
+
+            // se escribe un par de bits en un bloque de cada disco
+            if (parity_disk_turn == 2){
+
+                writer_d0 << charBytes1 << std::endl;
+                writer_d1 << charBytes2 << std::endl;
+                writer_d2 << charBytesParity << std::endl;
+            }
+            else if (parity_disk_turn == 1){
+                writer_d0 << charBytes1 << std::endl;
+                writer_d1 << charBytesParity << std::endl;
+                writer_d2 << charBytes2  << std::endl;
+            }
+            else if(parity_disk_turn == 0){
+                writer_d0 << charBytesParity << std::endl;
+                writer_d1 << charBytes1 << std::endl;
+                writer_d2 << charBytes2 << std::endl;
+            }
+        }
+        // asigna al siguiente disco en el que se guardará la paridad
         if (parity_disk_turn == 2){
 
-            writer_d0 << charBytes1 << std::endl;
-            writer_d1 << charBytes2 << std::endl;
-            writer_d2 << charBytesParity << std::endl;
+            parity_disk_turn--;
         }
         else if (parity_disk_turn == 1){
-            writer_d0 << charBytes1 << std::endl;
-            writer_d1 << charBytesParity << std::endl;
-            writer_d2 << charBytes2  << std::endl;
+
+            parity_disk_turn--;
         }
         else if(parity_disk_turn == 0){
-            writer_d0 << charBytesParity << std::endl;
-            writer_d1 << charBytes1 << std::endl;
-            writer_d2 << charBytes2 << std::endl;
+
+            parity_disk_turn = 2;
         }
-    }
-    // asigna al siguiente disco en el que se guardará la paridad
-    if (parity_disk_turn == 2){
 
-        parity_disk_turn--;
-    }
-    else if (parity_disk_turn == 1){
+        blocks++;
+        usedMemory += charVector.size();
+        std::cout << "usedMemory (bytes): " << usedMemory << std::endl;
 
-        parity_disk_turn--;
+        std::ofstream ofsBlock(path_uwu + "/TECFS-Disk/metadata2.txt");
+        if (ofsBlock) {
+            ofsBlock << blocks << std::endl;
+            ofsBlock << usedMemory << std::endl;
+            ofsBlock << parity_disk_turn;
+        }
+        ofsBlock.close();
+    }else{
+        qDebug() << "Espacio insuficiente, no se pudo cargar un archivo";
     }
-    else if(parity_disk_turn == 0){
-
-        parity_disk_turn = 2;
-    }
-
-    blocks++;
-    usedMemory += charVector.size();
-    std::cout << "usedMemory (bytes): " << usedMemory << std::endl;
-
-    std::ofstream ofsBlock(path_uwu + "/TECFS-Disk/metadata2.txt");
-    if (ofsBlock) {
-        ofsBlock << blocks;
-    }
-    ofsBlock.close();
 }
 
 std::string ControllerNode::loadFromRaid(std::string block) {
