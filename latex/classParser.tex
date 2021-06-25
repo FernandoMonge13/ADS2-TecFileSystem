@@ -1,0 +1,226 @@
+\hypertarget{classParser}{}\doxysection{Parser Class Reference}
+\label{classParser}\index{Parser@{Parser}}
+
+
+{\ttfamily \#include $<$Parser.\+h$>$}
+
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static std\+::string \mbox{\hyperlink{classParser_a14c84fbe6631aae8f29fe69e8f1c7706}{Return\+Char}} (QJson\+Document document)
+\begin{DoxyCompactList}\small\item\em Se encarga de convertir un QJson\+Document a un std\+::string. \end{DoxyCompactList}\item 
+static std\+::string \mbox{\hyperlink{classParser_a5cd53f410523f743237e478db376ea33}{Return\+String\+Value\+From\+Json}} (QJson\+Document document, std\+::string value)
+\begin{DoxyCompactList}\small\item\em Se encarga de obtener un valor especifico de un QJson\+Document. \end{DoxyCompactList}\item 
+static QJson\+Document \mbox{\hyperlink{classParser_a1998f6e94de23ab34fbe3b2bdf2cded4}{Return\+Json}} (const \mbox{\hyperlink{VentanaFinal_2cmake-build-debug_2CMakeCache_8txt_afe71f11dacb15682cdc012f7208e6e09}{char}} $\ast$inbox)
+\begin{DoxyCompactList}\small\item\em Se encarga de convertir un conjuto de chars en el QJson\+Documt. \end{DoxyCompactList}\item 
+static QJson\+Document \mbox{\hyperlink{classParser_ab6ed3164ec614ad75a7d6fd914b98dae}{Return\+Json\+From\+Str}} (std\+::string text)
+\begin{DoxyCompactList}\small\item\em Se encarga de convertir un std\+::string a un QJson\+Document. \end{DoxyCompactList}\item 
+static QJson\+Object \mbox{\hyperlink{classParser_a175a76a4539f2ce2707285e56ec09129}{Nothing}} ()
+\begin{DoxyCompactList}\small\item\em Se encarga de generar un QJson\+Document el cual sera utilizado como un simple mensaje vacio que sera enviado al servidor cuando este no debe de realizar nada. \end{DoxyCompactList}\item 
+static QJson\+Object \mbox{\hyperlink{classParser_aeba67afd906f4478f29453debb6e43e4}{Huffman}} (std\+::string binary)
+\begin{DoxyCompactList}\small\item\em Se encarga de generar un QJson\+Document el cual contiene la informacion brindada por el \mbox{\hyperlink{classHuffman}{Huffman}}. \end{DoxyCompactList}\item 
+static QJson\+Object \mbox{\hyperlink{classParser_a88df065732c9535568a1f9416c19c8fe}{Path}} (std\+::string binary)
+\begin{DoxyCompactList}\small\item\em Se encarga de generar un QJson\+Document el cual contiene la informacion del path al cual dirigirse. \end{DoxyCompactList}\item 
+static QJson\+Object \mbox{\hyperlink{classParser_a7a3b59bc67fcd93496c7f5f317199953}{To\+Show}} (std\+::string text)
+\begin{DoxyCompactList}\small\item\em Se encarga de generar un QJson\+Document el cual contiene la informacion que debera de mostrarse en pantalla. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 13 of file Parser.\+h.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classParser_aeba67afd906f4478f29453debb6e43e4}\label{classParser_aeba67afd906f4478f29453debb6e43e4}} 
+\index{Parser@{Parser}!Huffman@{Huffman}}
+\index{Huffman@{Huffman}!Parser@{Parser}}
+\doxysubsubsection{\texorpdfstring{Huffman()}{Huffman()}}
+{\footnotesize\ttfamily QJson\+Object Parser\+::\+Huffman (\begin{DoxyParamCaption}\item[{std\+::string}]{binary }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Se encarga de generar un QJson\+Document el cual contiene la informacion brindada por el \mbox{\hyperlink{classHuffman}{Huffman}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em binary} & Binario \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+QJson\+Object 
+\end{DoxyReturn}
+
+
+Definition at line 16 of file Parser.\+cpp.
+
+\mbox{\Hypertarget{classParser_a175a76a4539f2ce2707285e56ec09129}\label{classParser_a175a76a4539f2ce2707285e56ec09129}} 
+\index{Parser@{Parser}!Nothing@{Nothing}}
+\index{Nothing@{Nothing}!Parser@{Parser}}
+\doxysubsubsection{\texorpdfstring{Nothing()}{Nothing()}}
+{\footnotesize\ttfamily QJson\+Object Parser\+::\+Nothing (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Se encarga de generar un QJson\+Document el cual sera utilizado como un simple mensaje vacio que sera enviado al servidor cuando este no debe de realizar nada. 
+
+\begin{DoxyReturn}{Returns}
+QJson\+Object 
+\end{DoxyReturn}
+
+
+Definition at line 10 of file Parser.\+cpp.
+
+Here is the caller graph for this function\+:
+% FIG 0
+\mbox{\Hypertarget{classParser_a88df065732c9535568a1f9416c19c8fe}\label{classParser_a88df065732c9535568a1f9416c19c8fe}} 
+\index{Parser@{Parser}!Path@{Path}}
+\index{Path@{Path}!Parser@{Parser}}
+\doxysubsubsection{\texorpdfstring{Path()}{Path()}}
+{\footnotesize\ttfamily QJson\+Object Parser\+::\+Path (\begin{DoxyParamCaption}\item[{std\+::string}]{binary }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Se encarga de generar un QJson\+Document el cual contiene la informacion del path al cual dirigirse. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em binary} & Path al que dirigirse \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+QJson\+Object 
+\end{DoxyReturn}
+
+
+Definition at line 23 of file Parser.\+cpp.
+
+\mbox{\Hypertarget{classParser_a14c84fbe6631aae8f29fe69e8f1c7706}\label{classParser_a14c84fbe6631aae8f29fe69e8f1c7706}} 
+\index{Parser@{Parser}!ReturnChar@{ReturnChar}}
+\index{ReturnChar@{ReturnChar}!Parser@{Parser}}
+\doxysubsubsection{\texorpdfstring{ReturnChar()}{ReturnChar()}}
+{\footnotesize\ttfamily std\+::string Parser\+::\+Return\+Char (\begin{DoxyParamCaption}\item[{QJson\+Document}]{document }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Se encarga de convertir un QJson\+Document a un std\+::string. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em document\+Documento} & a parsear \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::string 
+\end{DoxyReturn}
+
+
+Definition at line 37 of file Parser.\+cpp.
+
+Here is the caller graph for this function\+:
+% FIG 1
+\mbox{\Hypertarget{classParser_a1998f6e94de23ab34fbe3b2bdf2cded4}\label{classParser_a1998f6e94de23ab34fbe3b2bdf2cded4}} 
+\index{Parser@{Parser}!ReturnJson@{ReturnJson}}
+\index{ReturnJson@{ReturnJson}!Parser@{Parser}}
+\doxysubsubsection{\texorpdfstring{ReturnJson()}{ReturnJson()}}
+{\footnotesize\ttfamily QJson\+Document Parser\+::\+Return\+Json (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{VentanaFinal_2cmake-build-debug_2CMakeCache_8txt_afe71f11dacb15682cdc012f7208e6e09}{char}} $\ast$}]{inbox }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Se encarga de convertir un conjuto de chars en el QJson\+Documt. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em inbox} & Caracteres a parsear \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+QJson\+Document 
+\end{DoxyReturn}
+
+
+Definition at line 47 of file Parser.\+cpp.
+
+Here is the caller graph for this function\+:
+% FIG 2
+\mbox{\Hypertarget{classParser_ab6ed3164ec614ad75a7d6fd914b98dae}\label{classParser_ab6ed3164ec614ad75a7d6fd914b98dae}} 
+\index{Parser@{Parser}!ReturnJsonFromStr@{ReturnJsonFromStr}}
+\index{ReturnJsonFromStr@{ReturnJsonFromStr}!Parser@{Parser}}
+\doxysubsubsection{\texorpdfstring{ReturnJsonFromStr()}{ReturnJsonFromStr()}}
+{\footnotesize\ttfamily QJson\+Document Parser\+::\+Return\+Json\+From\+Str (\begin{DoxyParamCaption}\item[{std\+::string}]{text }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Se encarga de convertir un std\+::string a un QJson\+Document. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em text} & Valor a parsear \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+QJson\+Document 
+\end{DoxyReturn}
+
+
+Definition at line 54 of file Parser.\+cpp.
+
+Here is the caller graph for this function\+:
+% FIG 3
+\mbox{\Hypertarget{classParser_a5cd53f410523f743237e478db376ea33}\label{classParser_a5cd53f410523f743237e478db376ea33}} 
+\index{Parser@{Parser}!ReturnStringValueFromJson@{ReturnStringValueFromJson}}
+\index{ReturnStringValueFromJson@{ReturnStringValueFromJson}!Parser@{Parser}}
+\doxysubsubsection{\texorpdfstring{ReturnStringValueFromJson()}{ReturnStringValueFromJson()}}
+{\footnotesize\ttfamily std\+::string Parser\+::\+Return\+String\+Value\+From\+Json (\begin{DoxyParamCaption}\item[{QJson\+Document}]{document,  }\item[{std\+::string}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Se encarga de obtener un valor especifico de un QJson\+Document. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em document} & Documento sobre el cual trabajar \\
+\hline
+{\em value} & Valor que se desea obtener \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::string 
+\end{DoxyReturn}
+
+
+Definition at line 43 of file Parser.\+cpp.
+
+Here is the caller graph for this function\+:
+% FIG 4
+\mbox{\Hypertarget{classParser_a7a3b59bc67fcd93496c7f5f317199953}\label{classParser_a7a3b59bc67fcd93496c7f5f317199953}} 
+\index{Parser@{Parser}!ToShow@{ToShow}}
+\index{ToShow@{ToShow}!Parser@{Parser}}
+\doxysubsubsection{\texorpdfstring{ToShow()}{ToShow()}}
+{\footnotesize\ttfamily QJson\+Object Parser\+::\+To\+Show (\begin{DoxyParamCaption}\item[{std\+::string}]{text }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Se encarga de generar un QJson\+Document el cual contiene la informacion que debera de mostrarse en pantalla. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em text} & Texto a mostrarse \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+QJson\+Object 
+\end{DoxyReturn}
+
+
+Definition at line 30 of file Parser.\+cpp.
+
+Here is the caller graph for this function\+:
+% FIG 5
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Sockets/\mbox{\hyperlink{Parser_8h}{Parser.\+h}}\item 
+Sockets/\mbox{\hyperlink{Parser_8cpp}{Parser.\+cpp}}\end{DoxyCompactItemize}

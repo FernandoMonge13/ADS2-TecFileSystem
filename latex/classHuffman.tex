@@ -1,0 +1,137 @@
+\hypertarget{classHuffman}{}\doxysection{Huffman Class Reference}
+\label{classHuffman}\index{Huffman@{Huffman}}
+
+
+{\ttfamily \#include $<$Huffman.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classHuffman_a58af969e1cd59bd981f1461e8a51822c}{Huffman}} ()
+\item 
+std\+::string \mbox{\hyperlink{classHuffman_a5c2b7bc9b59f1b1b654f66592b0891d5}{code}} (std\+::string info)
+\begin{DoxyCompactList}\small\item\em codes a message \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classHuffman_a92d37d425e951b1ebe605515f1d0e327}{decode}} (std\+::string info)
+\begin{DoxyCompactList}\small\item\em decodes que information \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{classHuffman}{Huffman}} $\ast$ \mbox{\hyperlink{classHuffman_a398ad3b0e1de931a55dc60bcf49f0ec2}{get\+Instance}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+std\+::map$<$ \mbox{\hyperlink{VentanaFinal_2cmake-build-debug_2CMakeCache_8txt_afe71f11dacb15682cdc012f7208e6e09}{char}}, std\+::string $>$ \mbox{\hyperlink{classHuffman_a9603f711abf7d00f1b7caa29ddde1d47}{codes}}
+\item 
+std\+::map$<$ \mbox{\hyperlink{VentanaFinal_2cmake-build-debug_2CMakeCache_8txt_afe71f11dacb15682cdc012f7208e6e09}{char}}, \mbox{\hyperlink{VentanaFinal_2cmake-build-debug_2CMakeCache_8txt_a79a3d8790b2588b09777910863574e09}{int}} $>$ \mbox{\hyperlink{classHuffman_af17d437e5c5c7d28b829152d64a5697c}{freq}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 11 of file Huffman.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classHuffman_a58af969e1cd59bd981f1461e8a51822c}\label{classHuffman_a58af969e1cd59bd981f1461e8a51822c}} 
+\index{Huffman@{Huffman}!Huffman@{Huffman}}
+\index{Huffman@{Huffman}!Huffman@{Huffman}}
+\doxysubsubsection{\texorpdfstring{Huffman()}{Huffman()}}
+{\footnotesize\ttfamily Huffman\+::\+Huffman (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 11 of file Huffman.\+cpp.
+
+Here is the caller graph for this function\+:
+% FIG 0
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classHuffman_a5c2b7bc9b59f1b1b654f66592b0891d5}\label{classHuffman_a5c2b7bc9b59f1b1b654f66592b0891d5}} 
+\index{Huffman@{Huffman}!code@{code}}
+\index{code@{code}!Huffman@{Huffman}}
+\doxysubsubsection{\texorpdfstring{code()}{code()}}
+{\footnotesize\ttfamily std\+::string Huffman\+::code (\begin{DoxyParamCaption}\item[{std\+::string}]{info }\end{DoxyParamCaption})}
+
+
+
+codes a message 
+
+
+\begin{DoxyParams}{Parameters}
+{\em info} & to be coded \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+already coded 
+\end{DoxyReturn}
+
+
+Definition at line 104 of file Huffman.\+cpp.
+
+\mbox{\Hypertarget{classHuffman_a92d37d425e951b1ebe605515f1d0e327}\label{classHuffman_a92d37d425e951b1ebe605515f1d0e327}} 
+\index{Huffman@{Huffman}!decode@{decode}}
+\index{decode@{decode}!Huffman@{Huffman}}
+\doxysubsubsection{\texorpdfstring{decode()}{decode()}}
+{\footnotesize\ttfamily std\+::string Huffman\+::decode (\begin{DoxyParamCaption}\item[{std\+::string}]{info }\end{DoxyParamCaption})}
+
+
+
+decodes que information 
+
+
+\begin{DoxyParams}{Parameters}
+{\em info} & the one is gonna be decode \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+decoded information 
+\end{DoxyReturn}
+
+
+Definition at line 127 of file Huffman.\+cpp.
+
+\mbox{\Hypertarget{classHuffman_a398ad3b0e1de931a55dc60bcf49f0ec2}\label{classHuffman_a398ad3b0e1de931a55dc60bcf49f0ec2}} 
+\index{Huffman@{Huffman}!getInstance@{getInstance}}
+\index{getInstance@{getInstance}!Huffman@{Huffman}}
+\doxysubsubsection{\texorpdfstring{getInstance()}{getInstance()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classHuffman}{Huffman}} $\ast$ Huffman\+::get\+Instance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line 119 of file Huffman.\+cpp.
+
+Here is the call graph for this function\+:
+% FIG 1
+
+
+\doxysubsection{Field Documentation}
+\mbox{\Hypertarget{classHuffman_a9603f711abf7d00f1b7caa29ddde1d47}\label{classHuffman_a9603f711abf7d00f1b7caa29ddde1d47}} 
+\index{Huffman@{Huffman}!codes@{codes}}
+\index{codes@{codes}!Huffman@{Huffman}}
+\doxysubsubsection{\texorpdfstring{codes}{codes}}
+{\footnotesize\ttfamily std\+::map$<$\mbox{\hyperlink{VentanaFinal_2cmake-build-debug_2CMakeCache_8txt_afe71f11dacb15682cdc012f7208e6e09}{char}}, std\+::string$>$ Huffman\+::codes}
+
+
+
+Definition at line 17 of file Huffman.\+h.
+
+\mbox{\Hypertarget{classHuffman_af17d437e5c5c7d28b829152d64a5697c}\label{classHuffman_af17d437e5c5c7d28b829152d64a5697c}} 
+\index{Huffman@{Huffman}!freq@{freq}}
+\index{freq@{freq}!Huffman@{Huffman}}
+\doxysubsubsection{\texorpdfstring{freq}{freq}}
+{\footnotesize\ttfamily std\+::map$<$\mbox{\hyperlink{VentanaFinal_2cmake-build-debug_2CMakeCache_8txt_afe71f11dacb15682cdc012f7208e6e09}{char}}, \mbox{\hyperlink{VentanaFinal_2cmake-build-debug_2CMakeCache_8txt_a79a3d8790b2588b09777910863574e09}{int}}$>$ Huffman\+::freq}
+
+
+
+Definition at line 18 of file Huffman.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Huffman/\mbox{\hyperlink{Huffman_8h}{Huffman.\+h}}\item 
+Huffman/\mbox{\hyperlink{Huffman_8cpp}{Huffman.\+cpp}}\end{DoxyCompactItemize}

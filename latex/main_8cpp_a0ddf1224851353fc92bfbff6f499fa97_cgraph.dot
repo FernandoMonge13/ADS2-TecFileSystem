@@ -1,0 +1,32 @@
+digraph "main"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="main",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
+  Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid"];
+  Node2 [label="Server::Start",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classServer.html#acaea883b722927c7d8299a74447c8d1b",tooltip="Se encarga de levantar el servidor el cual estara acargo del el manejo de la memoria."];
+  Node2 -> Node3 [color="midnightblue",fontsize="10",style="solid"];
+  Node3 [label="Browser::analyze",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classBrowser.html#ac2c93f86153d02c613c78ab22677592f",tooltip="analyze if a string is inside other"];
+  Node2 -> Node4 [color="midnightblue",fontsize="10",style="solid"];
+  Node4 [label="ControllerNode::getBlocks",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classControllerNode.html#a87555140f3d8a24a4cd9dcc79a3c74c3",tooltip=" "];
+  Node2 -> Node5 [color="midnightblue",fontsize="10",style="solid"];
+  Node5 [label="ControllerNode::loadFromRaid",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classControllerNode.html#a1654be50b582653d3cb9a605e888311f",tooltip="carga un archivo desde el Raid a su forma original"];
+  Node2 -> Node6 [color="midnightblue",fontsize="10",style="solid"];
+  Node6 [label="Parser::Nothing",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classParser.html#a175a76a4539f2ce2707285e56ec09129",tooltip="Se encarga de generar un QJsonDocument el cual sera utilizado como un simple mensaje vacio que sera e..."];
+  Node2 -> Node7 [color="midnightblue",fontsize="10",style="solid"];
+  Node7 [label="ControllerNode::recoverData",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classControllerNode.html#aabd83038b80b6070f4b524ab54f98099",tooltip="Reconstruye la información cuando 1 o 2 discos se han eliminado."];
+  Node2 -> Node8 [color="midnightblue",fontsize="10",style="solid"];
+  Node8 [label="Parser::ReturnChar",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classParser.html#a14c84fbe6631aae8f29fe69e8f1c7706",tooltip="Se encarga de convertir un QJsonDocument a un std::string."];
+  Node2 -> Node9 [color="midnightblue",fontsize="10",style="solid"];
+  Node9 [label="Parser::ReturnJson",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classParser.html#a1998f6e94de23ab34fbe3b2bdf2cded4",tooltip="Se encarga de convertir un conjuto de chars en el QJsonDocumt."];
+  Node2 -> Node10 [color="midnightblue",fontsize="10",style="solid"];
+  Node10 [label="Parser::ReturnStringValue\lFromJson",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classParser.html#a5cd53f410523f743237e478db376ea33",tooltip="Se encarga de obtener un valor especifico de un QJsonDocument."];
+  Node2 -> Node11 [color="midnightblue",fontsize="10",style="solid"];
+  Node11 [label="ControllerNode::saveInRaid",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classControllerNode.html#ac94cb1b763dab7e868c767b33cb93f09",tooltip=" "];
+  Node2 -> Node12 [color="midnightblue",fontsize="10",style="solid"];
+  Node12 [label="Browser::setInfo",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classBrowser.html#a97f437d772301224ae3308213ea736f4",tooltip="set the info where the program is gonna search"];
+  Node2 -> Node13 [color="midnightblue",fontsize="10",style="solid"];
+  Node13 [label="Parser::ToShow",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classParser.html#a7a3b59bc67fcd93496c7f5f317199953",tooltip="Se encarga de generar un QJsonDocument el cual contiene la informacion que debera de mostrarse en pan..."];
+}

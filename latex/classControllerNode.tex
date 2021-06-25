@@ -1,0 +1,133 @@
+\hypertarget{classControllerNode}{}\doxysection{Controller\+Node Class Reference}
+\label{classControllerNode}\index{ControllerNode@{ControllerNode}}
+
+
+{\ttfamily \#include $<$Controller\+Node.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classControllerNode_a06374f56409c9617eb100050897a1ef5}{set\+Blocks}} (\mbox{\hyperlink{VentanaFinal_2cmake-build-debug_2CMakeCache_8txt_a79a3d8790b2588b09777910863574e09}{int}} \+\_\+blocks)
+\item 
+\mbox{\hyperlink{VentanaFinal_2cmake-build-debug_2CMakeCache_8txt_a79a3d8790b2588b09777910863574e09}{int}} \mbox{\hyperlink{classControllerNode_a87555140f3d8a24a4cd9dcc79a3c74c3}{get\+Blocks}} ()
+\item 
+\mbox{\hyperlink{classControllerNode_ae6df5e7f4154cc81455c136c580c98d1}{Controller\+Node}} ()
+\begin{DoxyCompactList}\small\item\em es el constructor por defecto de la clase \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classControllerNode_ac94cb1b763dab7e868c767b33cb93f09}{save\+In\+Raid}} (std\+::string data)
+\item 
+std\+::string \mbox{\hyperlink{classControllerNode_a1654be50b582653d3cb9a605e888311f}{load\+From\+Raid}} (std\+::string block)
+\begin{DoxyCompactList}\small\item\em carga un archivo desde el Raid a su forma original \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classControllerNode_aabd83038b80b6070f4b524ab54f98099}{recover\+Data}} ()
+\begin{DoxyCompactList}\small\item\em Reconstruye la información cuando 1 o 2 discos se han eliminado. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 21 of file Controller\+Node.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classControllerNode_ae6df5e7f4154cc81455c136c580c98d1}\label{classControllerNode_ae6df5e7f4154cc81455c136c580c98d1}} 
+\index{ControllerNode@{ControllerNode}!ControllerNode@{ControllerNode}}
+\index{ControllerNode@{ControllerNode}!ControllerNode@{ControllerNode}}
+\doxysubsubsection{\texorpdfstring{ControllerNode()}{ControllerNode()}}
+{\footnotesize\ttfamily Controller\+Node\+::\+Controller\+Node (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+es el constructor por defecto de la clase 
+
+
+
+Definition at line 12 of file Controller\+Node.\+cpp.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classControllerNode_a87555140f3d8a24a4cd9dcc79a3c74c3}\label{classControllerNode_a87555140f3d8a24a4cd9dcc79a3c74c3}} 
+\index{ControllerNode@{ControllerNode}!getBlocks@{getBlocks}}
+\index{getBlocks@{getBlocks}!ControllerNode@{ControllerNode}}
+\doxysubsubsection{\texorpdfstring{getBlocks()}{getBlocks()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{VentanaFinal_2cmake-build-debug_2CMakeCache_8txt_a79a3d8790b2588b09777910863574e09}{int}} Controller\+Node\+::get\+Blocks (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 281 of file Controller\+Node.\+cpp.
+
+Here is the caller graph for this function\+:
+% FIG 0
+\mbox{\Hypertarget{classControllerNode_a1654be50b582653d3cb9a605e888311f}\label{classControllerNode_a1654be50b582653d3cb9a605e888311f}} 
+\index{ControllerNode@{ControllerNode}!loadFromRaid@{loadFromRaid}}
+\index{loadFromRaid@{loadFromRaid}!ControllerNode@{ControllerNode}}
+\doxysubsubsection{\texorpdfstring{loadFromRaid()}{loadFromRaid()}}
+{\footnotesize\ttfamily std\+::string Controller\+Node\+::load\+From\+Raid (\begin{DoxyParamCaption}\item[{std\+::string}]{block }\end{DoxyParamCaption})}
+
+
+
+carga un archivo desde el Raid a su forma original 
+
+
+\begin{DoxyParams}{Parameters}
+{\em block} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+la informacion 
+\end{DoxyReturn}
+
+
+Definition at line 111 of file Controller\+Node.\+cpp.
+
+Here is the caller graph for this function\+:
+% FIG 1
+\mbox{\Hypertarget{classControllerNode_aabd83038b80b6070f4b524ab54f98099}\label{classControllerNode_aabd83038b80b6070f4b524ab54f98099}} 
+\index{ControllerNode@{ControllerNode}!recoverData@{recoverData}}
+\index{recoverData@{recoverData}!ControllerNode@{ControllerNode}}
+\doxysubsubsection{\texorpdfstring{recoverData()}{recoverData()}}
+{\footnotesize\ttfamily void Controller\+Node\+::recover\+Data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Reconstruye la información cuando 1 o 2 discos se han eliminado. 
+
+
+
+Definition at line 197 of file Controller\+Node.\+cpp.
+
+Here is the caller graph for this function\+:
+% FIG 2
+\mbox{\Hypertarget{classControllerNode_ac94cb1b763dab7e868c767b33cb93f09}\label{classControllerNode_ac94cb1b763dab7e868c767b33cb93f09}} 
+\index{ControllerNode@{ControllerNode}!saveInRaid@{saveInRaid}}
+\index{saveInRaid@{saveInRaid}!ControllerNode@{ControllerNode}}
+\doxysubsubsection{\texorpdfstring{saveInRaid()}{saveInRaid()}}
+{\footnotesize\ttfamily void Controller\+Node\+::save\+In\+Raid (\begin{DoxyParamCaption}\item[{std\+::string}]{data }\end{DoxyParamCaption})}
+
+Convierte la información a bytes y la guarda en el Raid 
+\begin{DoxyParams}{Parameters}
+{\em data} & es la información que se desea guardar \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 25 of file Controller\+Node.\+cpp.
+
+Here is the caller graph for this function\+:
+% FIG 3
+\mbox{\Hypertarget{classControllerNode_a06374f56409c9617eb100050897a1ef5}\label{classControllerNode_a06374f56409c9617eb100050897a1ef5}} 
+\index{ControllerNode@{ControllerNode}!setBlocks@{setBlocks}}
+\index{setBlocks@{setBlocks}!ControllerNode@{ControllerNode}}
+\doxysubsubsection{\texorpdfstring{setBlocks()}{setBlocks()}}
+{\footnotesize\ttfamily void Controller\+Node\+::set\+Blocks (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{VentanaFinal_2cmake-build-debug_2CMakeCache_8txt_a79a3d8790b2588b09777910863574e09}{int}}}]{\+\_\+blocks }\end{DoxyParamCaption})}
+
+
+
+Definition at line 277 of file Controller\+Node.\+cpp.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+TECFS-\/\+Disk/\mbox{\hyperlink{ControllerNode_8h}{Controller\+Node.\+h}}\item 
+TECFS-\/\+Disk/\mbox{\hyperlink{ControllerNode_8cpp}{Controller\+Node.\+cpp}}\end{DoxyCompactItemize}

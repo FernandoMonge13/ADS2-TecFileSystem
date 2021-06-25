@@ -1,0 +1,16 @@
+digraph "Client::Start"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="Client::Start",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Se encarga de levantar el socket y realizar la recepcion/envio de mensajes."];
+  Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid"];
+  Node2 [label="MainWindow::getJson",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classMainWindow.html#ac78cc6535181641794b78f09c3d90c55",tooltip="Permite a la ventana principal obtener un Json para enviar al servidor por medio del cliente."];
+  Node1 -> Node3 [color="midnightblue",fontsize="10",style="solid"];
+  Node3 [label="Parser::ReturnChar",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classParser.html#a14c84fbe6631aae8f29fe69e8f1c7706",tooltip="Se encarga de convertir un QJsonDocument a un std::string."];
+  Node1 -> Node4 [color="midnightblue",fontsize="10",style="solid"];
+  Node4 [label="Parser::ReturnJson",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classParser.html#a1998f6e94de23ab34fbe3b2bdf2cded4",tooltip="Se encarga de convertir un conjuto de chars en el QJsonDocumt."];
+  Node1 -> Node5 [color="midnightblue",fontsize="10",style="solid"];
+  Node5 [label="Parser::ReturnJsonFromStr",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classParser.html#ab6ed3164ec614ad75a7d6fd914b98dae",tooltip="Se encarga de convertir un std::string a un QJsonDocument."];
+}

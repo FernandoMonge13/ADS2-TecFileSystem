@@ -1,0 +1,68 @@
+\hypertarget{CMakeLists_8txt}{}\doxysection{Ventana\+Final/\+CMake\+Lists.txt File Reference}
+\label{CMakeLists_8txt}\index{VentanaFinal/CMakeLists.txt@{VentanaFinal/CMakeLists.txt}}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{CMakeLists_8txt_ab64e2ab7aeec17b6c81cdbb857c44f61}{cmake\+\_\+minimum\+\_\+required}} (VERSION 3.\+5) project(Ventana\+Final VERSION 0.\+1 LANGUAGES CXX) \mbox{\hyperlink{CMakeLists_8txt_af48dd773cce78d0cae08a3aa8e1fc920}{set}}(CMAKE\+\_\+\+INCLUDE\+\_\+\+CURRENT\+\_\+\+DIR ON) \mbox{\hyperlink{CMakeLists_8txt_af48dd773cce78d0cae08a3aa8e1fc920}{set}}(CMAKE\+\_\+\+AUTOUIC ON) \mbox{\hyperlink{CMakeLists_8txt_af48dd773cce78d0cae08a3aa8e1fc920}{set}}(CMAKE\+\_\+\+AUTOMOC ON) \mbox{\hyperlink{CMakeLists_8txt_af48dd773cce78d0cae08a3aa8e1fc920}{set}}(CMAKE\+\_\+\+AUTORCC ON) \mbox{\hyperlink{CMakeLists_8txt_af48dd773cce78d0cae08a3aa8e1fc920}{set}}(CMAKE\+\_\+\+CXX\+\_\+\+STANDARD 17) \mbox{\hyperlink{CMakeLists_8txt_af48dd773cce78d0cae08a3aa8e1fc920}{set}}(CMAKE\+\_\+\+CXX\+\_\+\+STANDARD\+\_\+\+REQUIRED ON)() find\+\_\+package(QT NAMES Qt6 Qt5 COMPONENTS Widgets REQUIRED) find\+\_\+package(Qt\$
+\item 
+COMPONENTS Widgets REQUIRED \mbox{\hyperlink{CMakeLists_8txt_af48dd773cce78d0cae08a3aa8e1fc920}{set}} (PROJECT\+\_\+\+SOURCES main.\+cpp mainwindow.\+cpp mainwindow.\+h ../\mbox{\hyperlink{classBrowser}{Browser}}/Browser.\+cpp ../\mbox{\hyperlink{classBrowser}{Browser}}/Browser.\+h ../\mbox{\hyperlink{classHuffman}{Huffman}}/Huffman.\+cpp ../\mbox{\hyperlink{classHuffman}{Huffman}}/Huffman.\+h ../TECFS-\/Disk/Controller\+Node.\+cpp ../TECFS-\/Disk/Controller\+Node.\+h mainwindow.\+ui ../Sockets/Client.\+cpp ../Sockets/Client.\+h ../Sockets/Parser.\+cpp ../Sockets/Parser.\+h ../Sockets/Server.\+cpp ../Sockets/Server.\+h) if(\$
+\item 
+GREATER\+\_\+\+EQUAL \mbox{\hyperlink{CMakeLists_8txt_a5ea2186d96c19075811b98039abe2d66}{qt\+\_\+add\+\_\+executable}} (Ventana\+Final \$\{PROJECT\+\_\+\+SOURCES\}) \mbox{\hyperlink{CMakeLists_8txt_a32924e52e9c991c7c5eae192d3debcf1}{else}}() if(ANDROID) add\+\_\+library(Ventana\+Final SHARED \$
+\item 
+\mbox{\hyperlink{CMakeLists_8txt_a32924e52e9c991c7c5eae192d3debcf1}{else}} () add\+\_\+executable(Ventana\+Final \$
+\item 
+\mbox{\hyperlink{CMakeLists_8txt_abe942e1581b872ca9a7198cc09aa0c43}{endif}} () endif() target\+\_\+link\+\_\+libraries(Ventana\+Final PRIVATE Qt\$
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{CMakeLists_8txt_ab64e2ab7aeec17b6c81cdbb857c44f61}\label{CMakeLists_8txt_ab64e2ab7aeec17b6c81cdbb857c44f61}} 
+\index{CMakeLists.txt@{CMakeLists.txt}!cmake\_minimum\_required@{cmake\_minimum\_required}}
+\index{cmake\_minimum\_required@{cmake\_minimum\_required}!CMakeLists.txt@{CMakeLists.txt}}
+\doxysubsubsection{\texorpdfstring{cmake\_minimum\_required()}{cmake\_minimum\_required()}}
+{\footnotesize\ttfamily cmake\+\_\+minimum\+\_\+required (\begin{DoxyParamCaption}\item[{VERSION 3.}]{5 }\end{DoxyParamCaption})}
+
+
+
+Definition at line 1 of file CMake\+Lists.\+txt.
+
+\mbox{\Hypertarget{CMakeLists_8txt_a32924e52e9c991c7c5eae192d3debcf1}\label{CMakeLists_8txt_a32924e52e9c991c7c5eae192d3debcf1}} 
+\index{CMakeLists.txt@{CMakeLists.txt}!else@{else}}
+\index{else@{else}!CMakeLists.txt@{CMakeLists.txt}}
+\doxysubsubsection{\texorpdfstring{else()}{else()}}
+{\footnotesize\ttfamily else (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 53 of file CMake\+Lists.\+txt.
+
+\mbox{\Hypertarget{CMakeLists_8txt_abe942e1581b872ca9a7198cc09aa0c43}\label{CMakeLists_8txt_abe942e1581b872ca9a7198cc09aa0c43}} 
+\index{CMakeLists.txt@{CMakeLists.txt}!endif@{endif}}
+\index{endif@{endif}!CMakeLists.txt@{CMakeLists.txt}}
+\doxysubsubsection{\texorpdfstring{endif()}{endif()}}
+{\footnotesize\ttfamily endif (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 57 of file CMake\+Lists.\+txt.
+
+\mbox{\Hypertarget{CMakeLists_8txt_a5ea2186d96c19075811b98039abe2d66}\label{CMakeLists_8txt_a5ea2186d96c19075811b98039abe2d66}} 
+\index{CMakeLists.txt@{CMakeLists.txt}!qt\_add\_executable@{qt\_add\_executable}}
+\index{qt\_add\_executable@{qt\_add\_executable}!CMakeLists.txt@{CMakeLists.txt}}
+\doxysubsubsection{\texorpdfstring{qt\_add\_executable()}{qt\_add\_executable()}}
+{\footnotesize\ttfamily GREATER\+\_\+\+EQUAL qt\+\_\+add\+\_\+executable (\begin{DoxyParamCaption}\item[{Ventana\+Final \$\{PROJECT\+\_\+\+SOURCES\}}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 44 of file CMake\+Lists.\+txt.
+
+\mbox{\Hypertarget{CMakeLists_8txt_af48dd773cce78d0cae08a3aa8e1fc920}\label{CMakeLists_8txt_af48dd773cce78d0cae08a3aa8e1fc920}} 
+\index{CMakeLists.txt@{CMakeLists.txt}!set@{set}}
+\index{set@{set}!CMakeLists.txt@{CMakeLists.txt}}
+\doxysubsubsection{\texorpdfstring{set()}{set()}}
+{\footnotesize\ttfamily COMPONENTS Widgets REQUIRED set (\begin{DoxyParamCaption}\item[{PROJECT\+\_\+\+SOURCES main.\+cpp mainwindow.\+cpp mainwindow.\+h ../\mbox{\hyperlink{classBrowser}{Browser}}/Browser.\+cpp ../\mbox{\hyperlink{classBrowser}{Browser}}/Browser.\+h ../\mbox{\hyperlink{classHuffman}{Huffman}}/Huffman.\+cpp ../\mbox{\hyperlink{classHuffman}{Huffman}}/Huffman.\+h ../TECFS-\/Disk/Controller\+Node.\+cpp ../TECFS-\/Disk/Controller\+Node.\+h mainwindow.\+ui ../Sockets/Client.\+cpp ../Sockets/Client.\+h ../Sockets/Parser.\+cpp ../Sockets/Parser.\+h ../Sockets/Server.\+cpp ../Sockets/Server.}]{h }\end{DoxyParamCaption})}
+
+
+
+Definition at line 30 of file CMake\+Lists.\+txt.
+
