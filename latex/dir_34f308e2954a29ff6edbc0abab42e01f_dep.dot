@@ -1,0 +1,19 @@
+digraph "build-VentanaFinal-Desktop_Qt_6_1_1_GCC_64bit-Debug/VentanaFinal_autogen" {
+  compound=true
+  node [ fontsize="10", fontname="Helvetica"];
+  edge [ labelfontsize="10", labelfontname="Helvetica"];
+  subgraph clusterdir_ca681b59d69c333b4f0da986acf25652 {
+    graph [ bgcolor="#ddddee", pencolor="black", label="build-VentanaFinal-Desktop_Qt_6_1_1_GCC_64bit-Debug" fontname="Helvetica", fontsize="10", URL="dir_ca681b59d69c333b4f0da986acf25652.html"]
+  subgraph clusterdir_34f308e2954a29ff6edbc0abab42e01f {
+    graph [ bgcolor="#eeeeff", pencolor="black", label="" URL="dir_34f308e2954a29ff6edbc0abab42e01f.html"];
+    dir_34f308e2954a29ff6edbc0abab42e01f [shape=plaintext label="VentanaFinal_autogen"];
+  dir_3602b38041ce579369dd9bb119f4704f [shape=box label="EWIEGA46WW" fillcolor="white" style="filled" URL="dir_3602b38041ce579369dd9bb119f4704f.html"];
+  dir_6c9e042e7ca865216624997986a5afdf [shape=box label="include" fillcolor="white" style="filled" URL="dir_6c9e042e7ca865216624997986a5afdf.html"];
+  }
+  }
+  dir_bf4634d1bb0ee5ba54bad85de01d8320 [shape=box label="VentanaFinal" fillcolor="white" style="filled" color="red" URL="dir_bf4634d1bb0ee5ba54bad85de01d8320.html"];
+  dir_34f308e2954a29ff6edbc0abab42e01f->dir_3602b38041ce579369dd9bb119f4704f [headlabel="1", labeldistance=1.5 headhref="dir_000012_000013.html"];
+  dir_3602b38041ce579369dd9bb119f4704f->dir_bf4634d1bb0ee5ba54bad85de01d8320 [headlabel="1", labeldistance=1.5 headhref="dir_000013_000002.html"];
+  dir_bf4634d1bb0ee5ba54bad85de01d8320->dir_34f308e2954a29ff6edbc0abab42e01f [headlabel="1", labeldistance=1.5 headhref="dir_000002_000012.html"];
+  dir_bf4634d1bb0ee5ba54bad85de01d8320->dir_6c9e042e7ca865216624997986a5afdf [headlabel="1", labeldistance=1.5 headhref="dir_000002_000014.html"];
+}

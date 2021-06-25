@@ -1,0 +1,8 @@
+\hypertarget{Browser_8cpp}{}\doxysection{Browser/\+Browser.cpp File Reference}
+\label{Browser_8cpp}\index{Browser/Browser.cpp@{Browser/Browser.cpp}}
+{\ttfamily \#include \char`\"{}Browser.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../\+Huffman/\+Huffman.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$qdebug.\+h$>$}\newline
+{\ttfamily \#include $<$utility$>$}\newline
+Include dependency graph for Browser.\+cpp\+:
+% FIG 0

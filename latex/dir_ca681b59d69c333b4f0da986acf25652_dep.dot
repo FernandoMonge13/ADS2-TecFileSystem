@@ -1,0 +1,15 @@
+digraph "build-VentanaFinal-Desktop_Qt_6_1_1_GCC_64bit-Debug" {
+  compound=true
+  node [ fontsize="10", fontname="Helvetica"];
+  edge [ labelfontsize="10", labelfontname="Helvetica"];
+  subgraph clusterdir_ca681b59d69c333b4f0da986acf25652 {
+    graph [ bgcolor="#eeeeff", pencolor="black", label="" URL="dir_ca681b59d69c333b4f0da986acf25652.html"];
+    dir_ca681b59d69c333b4f0da986acf25652 [shape=plaintext label="build-VentanaFinal-Desktop_Qt_6_1_1_GCC_64bit-Debug"];
+  dir_4085dede9fae0f42df589aa34e76f609 [shape=box label="CMakeFiles" fillcolor="white" style="filled" color="red" URL="dir_4085dede9fae0f42df589aa34e76f609.html"];
+  dir_34f308e2954a29ff6edbc0abab42e01f [shape=box label="VentanaFinal_autogen" fillcolor="white" style="filled" color="red" URL="dir_34f308e2954a29ff6edbc0abab42e01f.html"];
+  }
+  dir_bf4634d1bb0ee5ba54bad85de01d8320 [shape=box label="VentanaFinal" fillcolor="white" style="filled" color="red" URL="dir_bf4634d1bb0ee5ba54bad85de01d8320.html"];
+  dir_34f308e2954a29ff6edbc0abab42e01f->dir_bf4634d1bb0ee5ba54bad85de01d8320 [headlabel="1", labeldistance=1.5 headhref="dir_000012_000002.html"];
+  dir_bf4634d1bb0ee5ba54bad85de01d8320->dir_34f308e2954a29ff6edbc0abab42e01f [headlabel="1", labeldistance=1.5 headhref="dir_000002_000012.html"];
+  dir_bf4634d1bb0ee5ba54bad85de01d8320->dir_ca681b59d69c333b4f0da986acf25652 [headlabel="1", labeldistance=1.5 headhref="dir_000002_000001.html"];
+}

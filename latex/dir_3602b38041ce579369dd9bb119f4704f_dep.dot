@@ -1,0 +1,11 @@
+digraph "build-VentanaFinal-Desktop_Qt_6_1_1_GCC_64bit-Debug/VentanaFinal_autogen/EWIEGA46WW" {
+  compound=true
+  node [ fontsize="10", fontname="Helvetica"];
+  edge [ labelfontsize="10", labelfontname="Helvetica"];
+  subgraph clusterdir_34f308e2954a29ff6edbc0abab42e01f {
+    graph [ bgcolor="#ddddee", pencolor="black", label="VentanaFinal_autogen" fontname="Helvetica", fontsize="10", URL="dir_34f308e2954a29ff6edbc0abab42e01f.html"]
+  dir_3602b38041ce579369dd9bb119f4704f [shape=box, label="EWIEGA46WW", style="filled", fillcolor="#eeeeff", pencolor="black", URL="dir_3602b38041ce579369dd9bb119f4704f.html"];
+  }
+  dir_bf4634d1bb0ee5ba54bad85de01d8320 [shape=box label="VentanaFinal" fillcolor="white" style="filled" color="red" URL="dir_bf4634d1bb0ee5ba54bad85de01d8320.html"];
+  dir_3602b38041ce579369dd9bb119f4704f->dir_bf4634d1bb0ee5ba54bad85de01d8320 [headlabel="1", labeldistance=1.5 headhref="dir_000013_000002.html"];
+}

@@ -16,7 +16,19 @@ public:
     static Huffman* getInstance();
     std::map<char, std::string> codes;
     std::map<char, int> freq;
+
+    /**
+     * @brief codes a message
+     * @param info to be coded
+     * @return already coded
+     */
     std::string code(std::string info);
+
+    /**
+     * @brief decodes que information
+     * @param info the one is gonna be decode
+     * @return decoded information
+     */
     std::string decode(std::string info);
 
 private:

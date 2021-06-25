@@ -1,0 +1,18 @@
+digraph "Sockets" {
+  compound=true
+  node [ fontsize="10", fontname="Helvetica"];
+  edge [ labelfontsize="10", labelfontname="Helvetica"];
+  dir_438e9b7480d7921b6e0882250b9f4843 [shape=box, label="Sockets", style="filled", fillcolor="#eeeeff", pencolor="black", URL="dir_438e9b7480d7921b6e0882250b9f4843.html"];
+  dir_1a267c128e570eec1b436dacbfd39e3f [shape=box label="Huffman" URL="dir_1a267c128e570eec1b436dacbfd39e3f.html"];
+  dir_a0a71bb9d2c5df6abea0ddddd3f4de0e [shape=box label="Browser" URL="dir_a0a71bb9d2c5df6abea0ddddd3f4de0e.html"];
+  dir_bf4634d1bb0ee5ba54bad85de01d8320 [shape=box label="VentanaFinal" fillcolor="white" style="filled" color="red" URL="dir_bf4634d1bb0ee5ba54bad85de01d8320.html"];
+  dir_e22be9aacca122f2a6a7569091616c5b [shape=box label="TECFS-Disk" URL="dir_e22be9aacca122f2a6a7569091616c5b.html"];
+  dir_438e9b7480d7921b6e0882250b9f4843->dir_1a267c128e570eec1b436dacbfd39e3f [headlabel="1", labeldistance=1.5 headhref="dir_000016_000015.html"];
+  dir_438e9b7480d7921b6e0882250b9f4843->dir_a0a71bb9d2c5df6abea0ddddd3f4de0e [headlabel="1", labeldistance=1.5 headhref="dir_000016_000000.html"];
+  dir_438e9b7480d7921b6e0882250b9f4843->dir_bf4634d1bb0ee5ba54bad85de01d8320 [headlabel="1", labeldistance=1.5 headhref="dir_000016_000002.html"];
+  dir_438e9b7480d7921b6e0882250b9f4843->dir_e22be9aacca122f2a6a7569091616c5b [headlabel="2", labeldistance=1.5 headhref="dir_000016_000017.html"];
+  dir_a0a71bb9d2c5df6abea0ddddd3f4de0e->dir_1a267c128e570eec1b436dacbfd39e3f [headlabel="1", labeldistance=1.5 headhref="dir_000000_000015.html"];
+  dir_a0a71bb9d2c5df6abea0ddddd3f4de0e->dir_e22be9aacca122f2a6a7569091616c5b [headlabel="1", labeldistance=1.5 headhref="dir_000000_000017.html"];
+  dir_bf4634d1bb0ee5ba54bad85de01d8320->dir_1a267c128e570eec1b436dacbfd39e3f [headlabel="1", labeldistance=1.5 headhref="dir_000002_000015.html"];
+  dir_bf4634d1bb0ee5ba54bad85de01d8320->dir_438e9b7480d7921b6e0882250b9f4843 [headlabel="5", labeldistance=1.5 headhref="dir_000002_000016.html"];
+}
